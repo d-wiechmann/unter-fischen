@@ -1,0 +1,21 @@
+{
+    "recommendations": [
+        "mrmlnc.vscode-apache",
+        "github.vscode-pull-request-github",
+        "bmewburn.vscode-intelephense-client",
+        "zignd.html-css-class-completion",
+        "benjaminkott.typo3-typoscript",
+        "kamediendesign.typo3-fluid",
+        "ralffreit.typo3snippets",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "srmeyers.git-prefix",
+        "st-pham.php-refactor-tool",
+        "esbenp.prettier-vscode",
+        "alefragnani.project-manager",
+        "dhide.timestamper",
+        "gruntfuggly.todo-tree",
+        "redhat.vscode-xml",
+        "glenn2223.live-sass"
+    ]
+}

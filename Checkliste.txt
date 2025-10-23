@@ -1,0 +1,465 @@
+Checkliste für TYPO3-Projekte
+=============================
+
+neueste Version der Blanko-Vorlage: https://github.com/thammit/typo3-project-template/blob/main/Checkliste.txt
+
+Legende
+-------
+zu klären:
+[_] = nicht ausgefüllt, noch nicht überprüft
+[!] = muss noch geändert werden
+[-][?] = nein, Angabe fehlt!
+
+geklärt:
+[x],[ja] = ja, ok
+[nein] = nein, ok
+[/] = nicht zutreffend/relevant in diesem Projekt
+
+
+Allgemeines / Pre Check
+=======================
+
+    I. Pojektverwaltung
+
+        [_] awork/JIRA Projekt/Vorgang ist angelegt Projekt-Vorgangskürzel: _________
+        [_] Leistungsumfang/Aufgabenbeschreibung ist dort hinterlegt
+
+        [_] GIT Repository URL: _________
+
+        [_] weitere Dokumente mit relevanten Vorgaben liegen (als solche erkennbar) im Projekte-Ordner und/oder GIT unter 3_Vorlagen_Quellen
+
+
+    II.  Hosting / TYPO3-Version
+
+        Hosting bei: ________________
+
+            Ansprechpartner
+            Kunde (Email): ______________
+            Hosting: _____________
+            DNS-Umstellung: ______________
+
+        [_] Zugangsdaten für das Projekt liegen vor
+            [_] in KeePass, dort zu finden über die Suche nach: _____________
+
+        [_] PHP Version: ___
+            [_] performance plus aktivieren?
+
+        [_] TYPO3 Version: ___
+            [_] automatische Updates aktivieren?
+
+        [_] Aufnahme in das Monitoring?
+            [_] T3Monitoring
+            [_] T3Monitor
+
+        [_] alle Domainnamen, unter denen die Seite(n) erreichbar sein sollen liegen vor, und zwar:
+            (gruppiert, jeweils Hauptdomain (die auch im FE genutzt wird) und weiteren Domains die umleiten auf ihre Hauptdomain)
+            1.	_________
+                _________
+            2.	_________
+                _________
+            ...
+
+            [_] non-www wird immer auf www.domain.de umgeleitet?
+
+        [_] Kunde bekommt FTP-Zugang, da regelmäßig große Dokumente/Videos hochgeleden werden müssen
+
+		[_] Metadaten sollen nicht aus Bildern entfernt werden -- ACHTUNG: https://forge.typo3.org/issues/103111
+
+        [_] Sollen alle Backendzugänge Multi-Factor Authentication verwenden müssen?
+
+    III. Die Website
+
+        0. Vorlagen werden umgesetzt für moderne Browser mit HTML5 + CSS3 + Javascript (+ Bootstrap 5 + jQuery)
+            (aktuelle und aktuelle-1 Version von Chrome, Safari, Firefox, Edge)
+
+        1. der Kunde legt wert auf:
+            [_] semantisches HTML5
+            [_] Barrierefreiheit
+                [_] beim Entwurf wurde auf die minimalen Farbkontraste geachtet
+                [_] für alle Abschnitte der Seiten sind (für Screen-Reader) Überschriften definiert
+            [_] SEO
+
+            mindestens 1 Punkt zutreffend:
+                [_] den Vorlagen liegt die gewünschte Document Outline (Überschriften Hierarchie bei
+                [_] Schema für den Aufbau/Zusammensetzung des <title>-Tag für Start-/Folgeseiten:
+                    Startseite: ______________________
+                    Folgeseite: {Seitentitel}________________
+                [_] weitere Metadaten im <head>
+                    _____________
+                    ...
+
+            [_] "akkuschonend" für mobile Geräte (d.h. u.A. keine/wenig Transparenzen Verläufe und Shadow, wenig JS)
+
+        2. URL-Schema/Endung ist geklärt
+
+            (_) TYPO3 Standard (https://www.example.com/, https://www.example.com/page, https://www.example.com/page/subpage
+            (_) .html-Endung (https://www.example.com/index.html, https://www.example.com/page.html, https://www.example.com/page/subpage.html
+            (_) mit Slash am Ende (https://www.example.com/, https://www.example.com/page/, https://www.example.com/page/subpage/
+
+        3. Mehrsprachigkeit
+
+            [_] Angaben zu Defaultsprache, Domains/URL-Schema liegt bei/sind geklärt
+                [_] ISO-Kürzel in URL
+                [_] eigene Domains
+                [_] Subdomains
+            [_] mehr als eine Sprache:
+                Deutsch (default, html lang="de-DE")
+                _____________
+                _____________
+                ...
+
+        4. Formulare/Datenschutz
+
+            [_] Formulare in diesem System:
+                _____________
+                _____________
+                ...
+
+            [_] gewünschte Formular- und DB-Felder, Texte (inkl. Dankeseite, Emails, Fehler-, Hilfetexte) liegen vor
+            [_] Absender Name und Email liegen vor (Server)
+                Email: __________
+                Name (optional): ______________
+            [_] Empfänger Name und Email liegen vor (Bearbeiter)
+                Email: __________
+                Name (optional): ______________
+            [_] Daten werden in DB gespeichert (Wer darf die sehen? Alle Redakteure?)
+            [_] Daten werden per Email ungeschützt verschickt
+
+        5. Widgets, Externe Links, Daten etc
+
+            [_] Funktion/URLs/Linkziele für Socialmedia und andere externe Links sind beigefügt/geklärt
+            [_] API Key für Google Maps liegt vor: _______________
+            [_] Piwik-, Matomo-, GA/GTM-Daten liegen vor: _______________
+            [_] Sonstiger Trackingcode:
+
+        6. Suche
+
+            (_) nur 1x täglich (nachts) per cron/Planer werden die Änderungen erfasst
+            (_) nein, __ mal am Tag
+            (_) keine Suche
+
+        7. Linkchecker
+
+            [_] der Linkchecker soll mit in den Planer aufgenommen werden
+                [_] Email an: ___________
+
+    IV. PSD/Vorlagen
+
+        1. Entwurf ist umsetzbar?
+
+            [_] richtiger Farbraum
+
+            [_] es sind keine Inhalte vor nicht in der Breite oder Höhe	veränderbaren Hintergründen vorgesehen
+            [_]	Hintergründe sind kachelbar oder in hinreichender (definierter, vorgegebener) Größe enthalten
+            [_] keine Farbverläufe oder abgeschnittene Schatten an den Vorlagenrändern
+            [_] Schatten sind so angelegt, dass sie per CSS umgesetzt oder
+                freigestellt/transparent ausgeschnitten werden können
+
+            [_] Hilfslinien befinden sich an den relevanten Schnittkanten
+            [_] keine in Hintergründe reduzierte Schriften
+
+        2. Entwurf ist vollständig?
+
+            [_] alle Ansichten definiert (inklusive Folgeschritte, Fehlermeldungen etc. von Formularen)
+
+            [_] Favicon enthalten
+            [_] Apple-touch-Icons enthalten
+            [_] Angaben zum CSS für media="print" liegen bei
+
+            [_] alle in den Vorlagen benutzen Bilder liegen auch einzeln bei
+
+            [_] Funktion aller Texte im PSD/Vorlage ist eindeutig gekenzeichnet
+                -> was ist Fließtext, Aufzählung, Bildunterschrift, Überschrift <hx> etc.
+                -> welche Elemente sind verlinkt, hover/focus[/active] Zustand
+
+            [_] kachelbare Hintergründe sind auch als einzelne Kachel enthalten
+
+            bei Mehrsprachigkeit:
+            [_] alle benötigten Texte/Grafiken(z.B. Flaggen)/Elemente sind
+                (als separate Ebenen) enthalten oder als einzelne Dateien beigelegt
+
+            bei grafischen Buttons/Textgrafiken:
+            [_] alle Beschriftungsvarianten/Zustände im PSD/Vorlagen enthalten
+
+
+        3. Benutzbarkeit auf Touchgeräten
+
+            [_] alle Komponenten funktionieren auch bei ~320x640 CSS-Pixel Viewportgröße
+            [_] beim Entwurf wurde auf die Einhaltung minimaler Touch-
+                Flächengröße und genügend Abstand benachbarter Links geachtet
+            [_] die Nutzung der Seite funktioniert auch ohne hover-Zustand
+
+        4. bei Responsive Design
+
+            die gewünschten Breakpoints sind festgelegt auf:
+            (_) wie Templatesystem
+            (_) abweichend:
+                ab ___px/em Tablet Ansicht
+                ab ___px/em Desktop Ansicht
+                ab ___px/em große Desktop Ansicht
+
+            [_] das Verhalten und Aussehen der Inhalte/Interaktionselemente
+                in (lies: zwischen den Breakpoints) geht eindeutig aus den
+                Vorlagen hervor, bzw. ist im Begleitdokument beschrieben
+
+        5. Typographie/Styles
+
+            [_] für die Schriftarten sind Fallbacks angegeben
+                [_] Webfonts: Schriftarten bzw. CSS-Snippet zur Einbindung liegt bei
+
+            [_] es sind Vorlagen/Styles für alle HTML-Elemente vorhanden
+
+            [_] es sind alle Abstände von Überschrift zu Text/Bild,
+                Absatz zu Absatz, etc. vollständig definiert
+
+            [_] die Typographieangaben sind für alle Ansichten definiert
+
+
+=========
+
+Umsetzung
+
+Daraus ergibt sich (abweichend vom/zusätzlich zum Template-System, bzw bei Updates):
+
+    benötigte BE-Layouts (und Verhalten ...):
+
+    [_] Redakteur muss BE-Layouts auswählen können
+
+    benötigte FE-Layouts (und Verhalten ...):
+
+
+    benötigte Container-Elemente (und Verhalten ...):
+
+    benötigte CE-Elemente für Redakteure
+
+
+    benötigte Bildausrichtungen (und deren jeweiliges Verhalten in den einzelnen Ansichten):
+
+    benötigte Optionen für Layout/Frame der CE:
+
+
+    benötigte RTE Textstile:
+
+    benötigte RTE Blockstile:
+
+
+    benötigte News Listen-/Detailansichten:
+
+    benötigte Erweiterungen:
+
+    zu beachtende Zusatzkonfigurationen (Sitemap, Suche, etc):
+
+
+    TIPP: Inhalte mit eingeschränktem Redakteurszugang anlegen/testen!
+
+==========
+
+
+
+Post-Check
+==========
+(zu prüfen _bevor_ Holger gesagt bekommt, die Seite sei fertig und _bevor_ der Kunde das System benutzt!)
+
+    I. TYPO3
+
+        0. Extensions
+            [_] Erweiterungliste auf neuestem Stand
+            [_] Extensions sind auf dem neuesten/dem definierten Stand
+            [_] alle benötigten Extensions sind installiert und konfiguriert
+            [_] nicht benutzte Extensions sind deinstalliert und entfernt
+
+        1. Konfiguration
+
+            Installtool/Einstellungen
+            [_] Datenbankschema ist aktuell (WARNUNG, vor Löschen: Sind alle ggf. noch benötigten Daten migriert?)
+                (Adminwerkzeuge > Wartung > Analyse Database Structure)
+            [_] "Live Settings" aktiv, bzw. [SYS][displayErrors], [be][debug] und [fe][debug] deaktiviert
+                (Adminwerkzeuge > Einstellungen > Configuration Presets)
+            [_] [MAIL][defaultMailFromAddress], [MAIL][defaultMailFromName] und ggf [MAIL][defaultMailReplyToAddress] sind gesetzt
+                (Adminwerkzeuge > Einstellungen > Configure Installation-Wide Options)
+                [_] SPF-Eintrag enthält include:agenturserver.de  testen: https://www.spf-record.com/spf-lookup/<domain.de>
+            [_] Mailversand aus dem Installtool (Umgebung/Mailversand) funktioniert
+            [_] ['TYPO3_CONF_VARS']['SYS']['miscfile_ext'] ist gemäß Kundenwunsch gesetzt/angepasst und
+                das Flag security.system.enforceAllowedFileExtensions gesetzt
+            [_] [FE][cacheHash][enforceValidation] = true und [FE][pageNotFoundOnCHashError] = true ist gesetzt
+    		[_] ['TYPO3_CONF_VARS'][GFX][processor_stripColorProfileParameters] (vormals ['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand'])
+                hat den gewünschten Wert z.B. +profile '!iptc, !exif, *' -- ACHTUNG: https://forge.typo3.org/issues/103111
+            [_] keine Deprecation Warnungen im Protokoll, keine in der Logdatei (/typo3conf/var/log/typo3_xxxx
+                (ggf [SYS][belogErrorReporting] = 6135, [SYS][errorHandlerErrors] = 5890 und [SYS][features][TypoScript.strictSyntax] = true setzen)
+                https://maximivanov.github.io/php-error-reporting-calculator/
+
+            [_] Bildbearbeitungs-Tests im Install-Tool funktionieren noch
+                (Adminwerkzeuge > Umgebung > Image Processing)
+            [_] Sprachdateien sind aktuell
+                (Adminwerkzeuge > Wartung > Manage Language Packs)
+
+            Extensionkonfiguration
+            [_] Postfach für Newsletter-Bounce ist konfiguriert
+
+            Backend
+            [_] In den Admin- (und Redakteurs-) Benutzern sind E-Mail-Adressen für die "Passwort vergessen" Funktion hinterlegt
+            [_] Debug TypoScript (z.B. aus Starteiten-Template Datensatz), aus Extensions entfernt/deaktiviert
+            [_] Im News-Ordner Seiteneigenschaften/Ressourcen:
+                TCEMAIN.clearCacheCmd = [Liste der Seiten-IDs mit Newsausgabe] eingefügt/angepasst
+                bzw. news-folder-settings.tsconfig (mit passendem Imhalt) ist dort eingebunden
+            [_] alle Domains/Sprachen haben eine eigene/passende 404 Seite (ggf in AdditionalConfiguration.php)
+            [_] kein Platzhalter-Inhalt auf der 404-Seite
+            [_] kein Platzhalter-Inhalt auf der Suche-Seite
+            [_] Protokoll auf Fehlermeldungen hin überprüft
+            [_] Scheduler Tasks/Konfiguration ggf. angepasst
+                [_] Dateiabstarktionsschicht-Tasks aktiviert & angepasst da FTP Uploads zuerwarten sind
+                [_] Linkchecker aufgenommen und konfiguriert
+            [_] Recycler geleert, ggf sys_log, sys_history Tabelle geleert (alles nur sinnvoll bevor der Kunde in dem System arbeitet)
+            [_] depecation log entfernt (und vorher ggf auch mal reingeschaut...)
+
+        2. Frontend Tests
+
+            [_] Favicon ist eingebunden (ggf mit http://realfavicongenerator.net/favicon_checker überprüfen)
+                (insbesondere: https://domain.de/favicon.ico zeigt das richtige Icon (aus dem Fileadmin) an)
+            [_] Metadaten/Title-Tag sind vollständig und wie definiert im <head> (News, weitere Extensions?)
+            [_] Bildgrößen sind passend eingestellt (Typoscript Konstanten ti_imagerenderer, TypoScript imagerendering.typoscript)
+            [_] CSS ist gemerged (und vorher "FIXME", "qqq" und "xxx" und (dauerhaft) nicht genutzten Code bereits entfernt...)
+            [_] JS ist gemerged ("console.log" und "alert" entfernt...)
+            [_] Developer Tools meldet keine (unerwarteten) Fehler oder fehlende Ressourcen
+            [_] HTML-Validator zeigen keine (unerwarteten) Fehler
+                https://validator.w3.org/
+            [_] Barrierefreiheit: z.B. Seite ist komplett per Tastatur bedienbar
+
+            [_] spamProtectEmailAddresses funktioniert (bei Update: obsoleter Code aus <project>.js gelöscht, config.typoscript angepasst)
+            [_] SystemEmail Template ist angepasst, settings in Site-Konfiguration eingetragen
+            [_] alle Formulare sind mit/ohne clientseitiger Validierung getestet
+                [_] Mails werden an die hinterlegten Adressen versendet
+            [_] Suchfunktion findet (nur) Inhalte die sie finden soll (z.B. keine Dankeseite)
+                [_] ggf. Content-Element Typen und Felder im Seiten-Indexer ergänzt
+                    # zB Elemente: text,textmedia,textpic,bullets,table,html,header,uploads,tielements_textexpand
+                    # zB Felder: bodytext,tx_tielements_bodytext2
+            [_] robots.txt verweist (für jeden Seitenbaum) auf die richtige sitemap.xml (mit Live-Domainnamen)
+            [_] sitemap.xml
+                [_] alle Seiten, die in der Sitemap sein sollen sind in der Sitemap aufgelistet
+                [_] alle Seiten, die NICHT in der Sitemap sein sollen sind auch nicht drin (z.B. "Danke-Seiten")
+                [_] für alle Plugins mit Detailseiten werden die definierten Sitemaps generiert und gefüllt
+
+            [_] Website und alle speziellen Komponenten in den verschiedenen definierten Browsern (siehe oben, Pre-Check) getestet
+                Tipp: nicht den Browser nutzen, mit dem man im BE eingeloggt ist/war! (bzw. TYPO3 Cookies vorher löschen)
+
+            [_] link rel=canonical wird korrekt gesetzt
+
+            [_] ggf: Google Webmastertools/Analytics oder Matomo vorkonfiguriert und im Frontend eingebunden
+            [_] Cookiebanner/ConsentTool enthält alle Cookies aus Documentation/Cookies.txt (sollte in allen EXT:ti_... vorhanden sein)
+
+
+        3. Backend Tests
+            [_] static_file_cache zeigt keine Auffälligkeiten
+
+              [_] nicht benötigte Admin und Redakteure deaktiviert/gelöscht
+                [_] es gibt keine Benutzer mit z.B. Namen "admin", "administrator", "redakteur", "editor", "<domain/firmenname>"
+                    (diese werden häufig automatisch von Bots versucht)
+            [_] BE-Gruppen-Konfiguration/Rechte überprüft
+                [_] bei Update: BE-Gruppen haben die benötigten neu hinzugekommenen oder geänderten Ausschlussfelder freigegeben bekommen
+                    z.B. Slug für Seiten und Newsartikel, SEO-Felder, Container-Elemente etc.
+                [_] jeder Redakteur hat notwendigen Rechte um ihm zugedachte Aufgaben zu erledigen
+                [_] RTE-Konfiguration überprüft
+                [_] Seitenbaum überprüft, sieht nur was er bearbeiten darf/sehen soll
+                [_] Dateiliste überprüft, sieht nur was er bearbeiten/benutzen darf
+                [_] ggf: Cache löschen und weitere Rechte verfügbar gemacht
+
+            [_] Empfänger für Formulare sind für Live-Einsatz gesetzt
+
+        [_] alle FIXME in der ti_base_<projekt> sind entfernt (und die entsprechenden Probleme gelöst/Konfigurationen angepasst)
+        [_] Aufnahme ins Monitoring
+            [_] T3Monitoring vorbereitet
+            [_] T3Monitor vorbereitet
+
+    II. SERVER/TYPO3
+
+        0. Dateien
+            [_] nicht mehr benötigte Dateien und Tools vom Server gelöscht z.B. HOWTO.txt, Umzugsdaten etc.
+
+        1. Domains
+            [_] Domains eingetragen, für Live-Einsatz vorbereitet
+            [_] Domain(s) könnten auf das neue System umgeswitcht werden
+                [_] Ansprechperson dafür ist bekannt (s.o.)
+
+            [_] Site-Configuration angepasst
+            [_] .htaccess "optimiert", für Live-Einsatz vorbereitet
+                [_] Domain und ggf weitere Redirects in .htaccess (vor)konfiguriert
+
+        2. Planer
+            [_] Cronjob ist auf dem Server konfiguriert
+                [_] (Mittwald) Projektname ist im Feld Bezeichner eingetragen
+            [_] Planer läuft und definierte Planertask werden automatisch ausgeführt
+
+        3. (bei Mittwald:)
+            [_] automatische Updates und Patches sind aktiviert
+            [_] korrekte PHP-Version ist eingestellt
+                [_] definierte Performance-Einstellungen sind aktiv
+            [_] aktuelle/benötigte/funktionierende Imagemagick-/Graphigmagickversion ist eingestellt
+
+        [_] GIT Branch "development" bzw. ggf der Update-Branch entspricht den Dateien des Servers, insbesondere Site-Configuration(s)
+        [_] Zugangsdaten sind in KeePass aktualisiert
+
+    III. Offene ToDos
+
+        [_] durch uns:
+            _____________
+
+        [_] durch den Kunden/Dienstleister:
+            _________________
+
+    IV. Fehlene Vorraussetzung für Liveschaltung
+
+        (_) Live-Schaltung möglich
+        (_) nicht möglich, weil:
+            __________________
+
+
+Live-Schalten
+=============
+
+    1. Vorprüfung
+
+        [_] vorherige Prüfungen sind alle (abschließen gelöst) durchgeführt
+
+        Domains
+        [_] alle Domains sind auf dem Server konfiguriert
+        [_] Domainname in Site Configuration(s) ist korrekt gesetzt
+        [_] Domains sind in .htaccess konfiguriert
+        [_] Arbeitsdomains .thamm-hosting.de entfernt
+        [_] .htaccess angepasst
+
+    => dann los, live schalten (lassen)...
+
+        [_] Tests der live geschalteten Seite zeigen keine Fehler/Ausfälligkeiten
+        [_] Site-Configurations wurden im GIT aktualisiert
+        [_] GIT Branch "development" ist in "master" gemerged, Daten auf dem Server entsprechen dem Master Branch
+        [_] Keepass Einträge aktualisiert
+
+Nachbereitung
+=============
+
+    1. Website
+
+        Backend
+        [_] Protokoll nochmal auf Fehlermeldungen hin überprüft
+
+        Dateisystem
+        [_] keine unerwarteten Deprecation Warnungen im Protokoll, keine in der Logdatei (/typo3temp/var/log/typo3_xxxx
+
+        Extern
+        [_] ggf: Google Webmastertools/Analytics oder Matomo konfiguriert (und nach ein paar Tagen nochmals überprüft)
+        [_] ggf: Google Analytics / Matomo / Piwik im alten System deaktiviert
+
+        [_] T3Monitoring/T3Monitor funktioniert
+
+        [_] es wurde nix vergessen ;-)
+
+    2. Eigene Homepage
+
+        [_] Screenshots für News- oder Referenzeneintrag angefertigt
+        [_] Onlinestellung an Support weitergemeldet
+
+    3. Kunde wurde informiert
+
+        [_] wurde Informiert
+        [_] hat Zugangsdaten bekommen
+        [_] wurde geschult, auf Besonderheiten/Änderungen hingewiesen

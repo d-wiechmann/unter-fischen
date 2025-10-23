@@ -1,0 +1,14 @@
+**.DS_Store
+**Thumbs.db
+
+/1_Entwicklung/typo3/fileadmin/user_upload/XXX/
+
+# ignore files with sensitive data
+/1_Entwicklung/typo3/typo3conf/LocalConfiguration.php
+/1_Entwicklung/typo3/typo3conf/system/settings.php
+
+# ignore all extensions but custom to project
+/1_Entwicklung/typo3/typo3conf/ext/*
+!/1_Entwicklung/typo3/typo3conf/ext/ti_base_XXX
+!/1_Entwicklung/typo3/typo3conf/ext/ti_container_XXX
+
