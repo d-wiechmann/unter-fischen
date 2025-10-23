@@ -1,6 +1,28 @@
 /* Have fun adding your style here :) - PS: At all times this file should contain a comment or a rule, otherwise opera might act buggy :( */
 
 /* General Custom CSS */
+#top {
+    #wrap_all {
+        .special_amp {
+            font-family: inherit;
+            font-style: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            font-weight: inherit;
+            color: inherit;
+        }
+        #header {
+            .logo {
+                display: none;
+            }
+            .main_menu {
+                width: 100%;
+                justify-content: center;
+                display: flex;
+            }
+        }
+    }
+}
 
 /*
 Desktop Styles
@@ -8,14 +30,64 @@ Desktop Styles
 /* Note: Add new css to the media query below that you want to only effect the desktop view of your site */
 
 @media only screen and (min-width: 768px) {
-  /* Add your Desktop Styles here */
+    /* Add your Desktop Styles here */
 }
 
 /*
 Mobile Styles
 ================================================== */
 /* Note: Add new css to the media query below that you want to only effect the Mobile and Tablet Portrait view */
+@media only screen and (max-width: 989px) {
+    #top {
+        #wrap_all {
+            /* #header {
+                .av-logo-container {
+                    height: 60px !important;
+                }
+            } */
+            #main {
+                #av_section_1 {
+                    .container {
+                        height: 75vh;
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media only screen and (max-width: 767px) {
-  /* Add your Mobile Styles here */
+    #top {
+        #wrap_all {
+            #header {
+                .av-logo-container {
+                    height: 40px !important;
+                    .main_menu {
+                        justify-content: end;
+                    }
+                }
+            }
+            #main {
+                #av_section_1 {
+                    .container {
+                        height: 50vh;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    #top {
+        #wrap_all {
+            #main {
+                #av_section_1 {
+                    .container {
+                        height: 33vh;
+                    }
+                }
+            }
+        }
+    }
 }
