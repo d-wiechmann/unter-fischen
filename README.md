@@ -1,10 +1,19 @@
-# typo3-project-template
+# enfold-versions
 
-GitHub Template for Typo3 projects.
+Dient uns dazu verschiedene Versionen von Enfold vorzuhalten, da Themeforest keine alten Versionen anbietet
 
-## Branches
-### master
-Der ``master`` Branch spiegelt immer den aktuellen Stand auf dem Live-Server wieder. In diesem sollte nicht entwickelt werden. Updates dieses Branches **nur** durch Merges aus dem ``development`` Branch.
+Das Enfold-Child steht extra zur Verfügung.
 
-### development
-Der ``development`` Branch ist für die Entwicklung und Weiterentwicklung zu nutzen um den ``master`` Branch sauber zu halten. Ist dies abgeschlossen, so sollte der ``development`` in den ``master`` gemerged werden um somit dort wieder den aktuellen Stand auf dem Live-Sever abzubilden.
+## How to use:
+
+-   Aktuelles Version von Enfold auf dne Server hochladen.
+-   Enfold-Child auf den Server hochladen.
+-   Enfold-Child als Theme in Wordpress aktivieren.
+-   Alle Arbeiten werdne im Enfold-Child gemacht. Auch Arbeiten an Dateien. Diese werden dafür aus dem Enfold-Theme selbst rüber kopiert
+    -   Bei einem Update, müssen dieses ggf händisch aktuallisiert werden. Daher sollte das Child-Theme für jedes Seite als eigenes Repo vorgehalten werden!
+-   Ansonsten muss bei Updates nur die neue Enfold-Version auf den Server hochgeladen werden.
+-   Es gibt im Backend einen Reiter ThammIT mit Einstellungen, die wir eingebaut haben.
+
+## Full Changelog:
+
+[Changelog](https://github.com/thammit/enfold-versions/blob/main/CHANGELOG.md)
